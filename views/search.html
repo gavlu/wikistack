@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1 class="raleway">Search Results</h1>
+    <hr>
+    {% if docs.length > 0 %}
+      <h2>It appears that there are multiple pages with the same name.</h2>
+      <ul>
+        {% for doc in docs %}
+          <li>
+            {{ doc|page_link }}
+            <p>{{ doc.body|preview }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no pages with that title. Sorry!</p>
+    {% endif %}
+{% endblock %}

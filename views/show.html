@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% for doc in docs %}
+      <h1 class="raleway">{{ doc.title }}</h1>
+      <hr>
+      <p>
+        {{ date }}
+      </p>
+      <p>{{ doc.body|markedFunc }}</p>
+      <button id="editButton" class='btn btn-warning'>EDIT</button>
+      <a class='btn btn-danger' href="/wiki/{{ doc.id }}/{{ doc.url_name }}/delete">DELETE</a>
+      <a class='btn btn-warning' href="/wiki/{{ doc.id }}/{{ doc.url_name }}/archive">ARCHIVE</a>
+      <form id="editForm" class="hidden" role="form" action="/wiki/{{ doc.id }}/{{ doc.url_name }}/submit" method="POST">
+        <div class="form-group">
+          <label for="pageTitle">PAGE TITLE</label>
+          <input type="text" class="form-control" name="title" value="{{ doc.title }}" autofocus>
+        </div>
+        <div class="form-group">
+          <label for="pageContent">PAGE CONTENT</label>
+          <textarea class="form-control" name="body" rows="14">{{ doc.body }}</textarea>
+        </div>
+        <input type="submit" class="btn btn-default" value="Submit">
+      </form>
+    {% endfor %}
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    document.getElementById('editButton').addEventListener("click", function(e) {
+      var edit = document.getElementById('editForm');
+      if(edit.className === '') {
+        edit.className = 'hidden';
+      } else {
+        edit.className = '';
+      }
+    });
+  </script>
+{% endblock %}

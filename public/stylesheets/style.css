@@ -1,0 +1,44 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+#mainContainer {
+  padding: 1% 5%;
+  width: 95%;
+  margin:auto;
+}
+
+input[type=submit] {
+  background-color: #266dea;
+  color: #ffffff;
+  border: 0;
+  }
+
+input[type=submit]:hover {
+  background-color: #0e4eb5;
+  color: #ffffff;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.archivedVersion {
+  border: 1px solid black;
+  border-radius:1em;
+  margin:  1em 0;
+  padding: 2em;
+}

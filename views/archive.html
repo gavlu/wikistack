@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1 class="raleway">Archived Versions</h1>
+  <hr>
+  <ul>
+    {% for doc in docs %}
+      <li class="archivedVersion">
+        <h1 class="raleway">{{ doc.title }}</h1>
+        <h4>{{ doc.date|toDate }} / Version: {{  doc.version }}</h2>
+        <hr>
+        <p>{{ doc.body|markedFunc}}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
